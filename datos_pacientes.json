@@ -1,0 +1,23 @@
+[
+    {
+        "NOMBRE": "JAVIER",
+        "APELLIDO": "SOLIS",
+        "DNI": "23232323",
+        "NACIONALIDAD": "ARGENTINA",
+        "NACIMIENTO": "30/04/1992"
+    },
+    {
+        "NOMBRE": "LORENA",
+        "APELLIDO": "GOMEZ",
+        "DNI": "23342342",
+        "NACIONALIDAD": "ARGENTINA",
+        "NACIMIENTO": "17/04/1998"
+    },
+    {
+        "NOMBRE": "JANET",
+        "APELLIDO": "TOMEZ",
+        "DNI": "2323232",
+        "NACIONALIDAD": "ARGERNINA",
+        "NACIMIENTO": "22/03/1994"
+    }
+]
