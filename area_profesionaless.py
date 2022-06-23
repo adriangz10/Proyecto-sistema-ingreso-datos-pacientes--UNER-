@@ -1,39 +1,46 @@
-from funciones import imprimir_titulo, menu_de_seleccion, leer_datos_de_json, ver_listado_profesionales,datos_profesionales, imprimir_un_solo_dato_profesional, comprobar_si_json_tiene_datos, escribir_datos_en_json
+from funciones import imprimir_titulo, menu_de_seleccion, leer_datos_de_json, ver_listado_profesionales,datos_profesionales, imprimir_un_solo_dato_profesional, comprobar_si_json_tiene_datos, escribir_datos_en_json, menu_profesionales
 import time
 
-while True:
+def inicio_area_profesionales():
 
-    imprimir_titulo("PROFESIONALES")
+    while True:
 
-    seleccion = menu_de_seleccion()
+        imprimir_titulo("PROFESIONALES")
 
-    if seleccion == "7":
+        seleccion = menu_profesionales()
 
-        imprimir_titulo("Listado de medicos")
+        if seleccion == 1:
 
-        nombre_archivo = "Trabajo integrador/datos_profesionales.json"
+            imprimir_titulo("Listado de medicos")
 
-        datos = leer_datos_de_json(nombre_archivo)
+            nombre_archivo = "Trabajo integrador/datos_profesionales.json"
 
-        ver_listado_profesionales(datos)
+            datos = leer_datos_de_json(nombre_archivo)
 
-    elif seleccion == "8":
+            ver_listado_profesionales(datos)
 
-        imprimir_titulo("Agregar nuevo profesional")
+        elif seleccion == 2:
 
-        datos = datos_profesionales()
+            imprimir_titulo("Agregar nuevo profesional")
 
-        imprimir_un_solo_dato_profesional(datos)
-    
-        time.sleep(5)
+            datos = datos_profesionales()
 
-        base = []
+            imprimir_un_solo_dato_profesional(datos)
+        
+            time.sleep(5)
 
-        nombre_archivo = "Trabajo integrador/datos_profesionales.json"
+            base = []
 
-        if comprobar_si_json_tiene_datos(nombre_archivo):
-            base = leer_datos_de_json(nombre_archivo)
+            nombre_archivo = "Trabajo integrador/datos_profesionales.json"
 
-        base.append(datos)
+            if comprobar_si_json_tiene_datos(nombre_archivo):
+                base = leer_datos_de_json(nombre_archivo)
 
-        escribir_datos_en_json(base, nombre_archivo)
+            base.append(datos)
+
+            escribir_datos_en_json(base, nombre_archivo)
+
+        elif seleccion == 0:
+            print("Saliendo...")
+            time.sleep(3)
+            break

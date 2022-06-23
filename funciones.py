@@ -398,27 +398,58 @@ def leer_datos_de_json(nombre):
 
 def menu_de_seleccion():
     while True:
-        menu = input("""
+
+        try: 
+            menu = int(input("""
     PACIENTES
         1 - Agregar un paciente nuevo.
         2 - Eliminar un paciente.
         3 - Editar datos de un paciente
 
+    SALIR 0 (cero) 
+
+    """))
+        except ValueError:
+            print("No se permiten letras. Vuelva a intentarlo")
+            time.sleep(3)
+            continue
+
+        return menu
+
+def menu_historias_clinicas():
+    while True:
+
+        try: 
+            menu = int(input("""
     HISTORIA CLINICA
-        4 - Crear historia clinica.
-        5 - Asignar historia clinica a un paciente.
-        6 - Buscar paciente
+        1 - Crear historia clinica.
+        2 - Asignar historia clinica a un paciente.
+        3 - Buscar paciente
 
+    SALIR 0 (cero) 
+
+    """))
+        except ValueError:
+            print("No se permiten letras. Vuelva a intentarlo")
+            time.sleep(3)
+            continue
+
+        return menu
+
+def menu_profesionales():
+       while True:
+
+        try: 
+            menu = int(input("""
     PROFESIONALES
-        7 - Ver lista de medicos.
-        8 - Agregar nuevo medico.
+        1 - Ver lista de medicos.
+        2 - Agregar nuevo medico.
+    
+    SALIR 0 (cero) 
 
-    PARA SALIR 0
-    """).upper()
-        control = menu.isdigit()
-        if control == False:
-            print("No se permiten letras")
-            print("Re intentar")
+    """))
+        except ValueError:
+            print("No se permiten letras. Vuelva a intentarlo")
             time.sleep(3)
             continue
 
@@ -460,20 +491,23 @@ def imprimir_todos_los_pacientes(datos, indice):
 
 def menu_edicion():
     while True:
+
         print("Seleccione el dato a cambiar")
-        seleccion = input("""
+
+        try:
+            seleccion = input("""
                 1 - Nombre
                 2 - Apellido
                 3 - DNI
                 4 - Nacionalidad
                 5 - Nacimiento
+
                 """)
-        control = seleccion.isdigit()
-        if control == False:
-            print("No se permiten letras")
-            time.sleep(2)
+        except ValueError:
+            print("No se permiten letras. Vuleva a intentarlo")
+            time.sleep(3)
             continue
-        
+
         return seleccion
 
 def editar_datos_pacientes(datos):
@@ -708,3 +742,24 @@ def imprimir_un_solo_dato_profesional(datos):
     for clave, valor in datos.items():
         print("*",clave.upper(), ":", valor)
     print("")
+
+def menu_principal():
+    while True:
+
+        try:
+            menu = int(input("""
+1 - PACIENTES
+
+2 - HISTORIA CLINICA
+
+3 - PROFESIONALES
+
+SALIR 0 (cero) 
+
+"""))
+        except ValueError:
+            print("No se permiten letras. Vuelva a intentarlo")
+            time.sleep(3)
+            continue
+
+        return menu
